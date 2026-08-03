@@ -13,6 +13,10 @@ $about = mysqli_fetch_assoc($q_setting);
 // RESUME
 $q_resume = mysqli_query($conn, "SELECT * FROM resume ORDER BY id DESC");
 $resume = mysqli_fetch_all($q_resume, MYSQLI_ASSOC);
+
+// SKILLS
+$q_skills = mysqli_query($conn, "SELECT * FROM skills ORDER BY id DESC");
+$skills = mysqli_fetch_all($q_skills, MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +50,7 @@ $resume = mysqli_fetch_all($q_resume, MYSQLI_ASSOC);
 
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
 		<div class="container">
-			<a class="navbar-brand" href="index.html">Clark</a>
+			<a class="navbar-brand" href="index.html">MEIDI</a>
 			<button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="oi oi-menu"></span> Menu
 			</button>
@@ -169,28 +173,34 @@ $resume = mysqli_fetch_all($q_resume, MYSQLI_ASSOC);
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">2014-2015</span>
-						<h2>Master Degree of Design</h2>
-						<span class="position">Cambridge University</span>
-						<p class="mt-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+
+				<?php
+				foreach ($resume as $v) {
+				?>
+					<div class="col-md-6">
+						<div class="resume-wrap ftco-animate">
+							<span class="date"><?= $v['year_start'] . " - " . $v['year_end'] ?></span>
+							<h2><?= $v['title'] ?></h2>
+							<span class="position"><?= $v['subtitle'] ?></span>
+							<p class="mt-4"><?= $v['description'] ?></p>
+						</div>
 					</div>
-					<div class="resume-wrap ftco-animate">
+				<?php
+				}
+				?>
+				<!-- <div class="resume-wrap ftco-animate">
 						<span class="date">2014-2015</span>
 						<h2>Bachelor's Degree of C.A</h2>
 						<span class="position">Cambridge University</span>
 						<p class="mt-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-					</div>
-					<div class="resume-wrap ftco-animate">
+					</div> -->
+				<!-- <div class="resume-wrap ftco-animate">
 						<span class="date">2014-2015</span>
 						<h2>Diploma in Computer</h2>
 						<span class="position">Cambridge University</span>
 						<p class="mt-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-					</div>
-				</div>
-
-				<div class="col-md-6">
+					</div> -->
+				<!-- <div class="col-md-6">
 					<div class="resume-wrap ftco-animate">
 						<span class="date">2014-2015</span>
 						<h2>Art &amp; Creative Director</h2>
@@ -209,7 +219,7 @@ $resume = mysqli_fetch_all($q_resume, MYSQLI_ASSOC);
 						<span class="position">Cambridge University</span>
 						<p class="mt-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
 					</div>
-				</div>
+				</div> -->
 			</div>
 			<div class="row justify-content-center mt-5">
 				<div class="col-md-6 text-center ftco-animate">
@@ -305,17 +315,26 @@ $resume = mysqli_fetch_all($q_resume, MYSQLI_ASSOC);
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6 animate-box">
-					<div class="progress-wrap ftco-animate">
-						<h3>Photoshop</h3>
-						<div class="progress">
-							<div class="progress-bar color-1" role="progressbar" aria-valuenow="90"
-								aria-valuemin="0" aria-valuemax="100" style="width:90%">
-								<span>90%</span>
+				<?php
+				foreach ($skills as $v) {
+				?>
+					<div class="col-md-6 animate-box">
+						<div class="progress-wrap ftco-animate">
+							<h3 style= "margin-bottom: <?= $v['progress'] < 7 ? '40px' : '0' ?>;">
+								<?php echo $v['name']; ?></h3>
+							<div class="progress">
+								<div class="progress-bar color-<?= $index + 1 ?>" role="progressbar" 
+								aria-valuenow="<?php echo $v['progress']; ?>"
+									aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $v['progress']; ?>%">
+									<span><?php echo $v['progress']; ?>%</span>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				<?php
+				}
+				?>
+<!-- 
 				<div class="col-md-6 animate-box">
 					<div class="progress-wrap ftco-animate">
 						<h3>jQuery</h3>
@@ -370,7 +389,7 @@ $resume = mysqli_fetch_all($q_resume, MYSQLI_ASSOC);
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</section>
