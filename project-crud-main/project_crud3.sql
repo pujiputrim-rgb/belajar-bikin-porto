@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Agu 2026 pada 09.56
+-- Waktu pembuatan: 04 Agu 2026 pada 10.09
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -20,6 +20,30 @@ SET time_zone = "+00:00";
 --
 -- Database: `project_crud3`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `blog`
+--
+
+CREATE TABLE `blog` (
+  `id` int(11) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `subtitle` varchar(50) NOT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `blog`
+--
+
+INSERT INTO `blog` (`id`, `image`, `title`, `subtitle`, `created_at`, `updated_at`) VALUES
+(1, '6a71984a6ebb4_vege-cat.jpg', 'icikiwir', 'awas ada sule', '2026-08-04 07:44:10', NULL),
+(2, '6a719bce1f149_orang-ijo.jpg', 'ahaydeee', 'prikitiw', '2026-08-04 07:59:10', NULL),
+(3, '6a719bff0399c_vege-cat.jpg', 'aren gentong', 'kucing tabby gembrot my kesukaan', '2026-08-04 07:59:59', NULL);
 
 -- --------------------------------------------------------
 
@@ -63,6 +87,31 @@ INSERT INTO `products` (`id`, `name`, `price`, `category`) VALUES
 (6, 'Printer', 5000000.00, 'Elektronik'),
 (7, 'Komputer', 15000000.00, 'Elektronik'),
 (8, 'Kulkas', 8000000.00, 'Elektronik');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `projects`
+--
+
+CREATE TABLE `projects` (
+  `id` int(11) NOT NULL,
+  `image` varchar(100) DEFAULT NULL,
+  `title` varchar(50) NOT NULL,
+  `subtitle` varchar(50) NOT NULL,
+  `button_link` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `projects`
+--
+
+INSERT INTO `projects` (`id`, `image`, `title`, `subtitle`, `button_link`, `created_at`, `updated_at`) VALUES
+(1, '6a71681dab118_desktop-green-pink.jpg', 'bbbbbbbbb', 'ccccccccc', 'https://youtu.be/lEXBxijQREo?si=CIwhMaZu-KW3xrbL', '2026-08-04 04:18:31', '2026-08-04 04:18:37'),
+(2, '6a716c7eac77f_desktop-polkadot.jpg', 'sssssss', 'ddddd', 'https://youtu.be/lEXBxijQREo?si=CIwhMaZu-KW3xrbL', '2026-08-04 04:37:18', NULL),
+(3, '6a7195eaa86a7_orang-ijo.jpg', 'aaaaaa', 'bbbbb', 'https://youtu.be/lEXBxijQREo?si=CIwhMaZu-KW3xrbL', '2026-08-04 04:46:53', '2026-08-04 07:34:02');
 
 -- --------------------------------------------------------
 
@@ -125,14 +174,14 @@ CREATE TABLE `skills` (
   `name` varchar(50) NOT NULL,
   `progress` int(3) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `update_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `skills`
 --
 
-INSERT INTO `skills` (`id`, `name`, `progress`, `created_at`, `update_at`) VALUES
+INSERT INTO `skills` (`id`, `name`, `progress`, `created_at`, `updated_at`) VALUES
 (1, 'HTML 5', 50, '2026-08-03 06:53:24', '2026-08-03 06:53:40'),
 (2, 'PHOTOSHOP', 90, '2026-08-03 06:54:32', NULL),
 (3, 'CSS3', 67, '2026-08-03 06:54:48', NULL),
@@ -195,6 +244,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
 --
 
 --
+-- Indeks untuk tabel `blog`
+--
+ALTER TABLE `blog`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `contacts`
 --
 ALTER TABLE `contacts`
@@ -204,6 +259,12 @@ ALTER TABLE `contacts`
 -- Indeks untuk tabel `products`
 --
 ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `projects`
+--
+ALTER TABLE `projects`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -242,6 +303,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `blog`
+--
+ALTER TABLE `blog`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT untuk tabel `contacts`
 --
 ALTER TABLE `contacts`
@@ -252,6 +319,12 @@ ALTER TABLE `contacts`
 --
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT untuk tabel `projects`
+--
+ALTER TABLE `projects`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `resume`
