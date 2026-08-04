@@ -87,6 +87,15 @@
                     <li class="nav-item">
                         <a
 
+                            href="blog.php"
+                            aria-expanded="false">
+                            <i class="fa fa-receipt"></i>
+                            <p>Blog</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+
                             href="contacts.php"
 
                             aria-expanded="false">

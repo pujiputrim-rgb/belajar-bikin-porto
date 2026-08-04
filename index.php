@@ -22,6 +22,10 @@ $skills = mysqli_fetch_all($q_skills, MYSQLI_ASSOC);
 // PROJECTS
 $q_projects = mysqli_query($conn, "SELECT * FROM projects ORDER BY id DESC");
 $projects = mysqli_fetch_all($q_projects, MYSQLI_ASSOC);
+
+// BLOG
+$q_blog = mysqli_query($conn, "SELECT * FROM blog ORDER BY id DESC");
+$blog = mysqli_fetch_all($q_blog, MYSQLI_ASSOC);	
 ?>
 
 <!DOCTYPE html>
@@ -425,46 +429,45 @@ $projects = mysqli_fetch_all($q_projects, MYSQLI_ASSOC);
 							</div>
 						</div>
 					<?php
-					} else 
+					} else
 					?>
 
-						<div class="col-md-4">
-							<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(project-crud-main/assets/img/<?php echo $v['image'] ?>);">
-								<div class="overlay"></div>
-								<div class="text text-center p-4">
-									<h3><a href="#"><?php echo $v['title'] ?></a></h3>
-									<span><?php echo $v['subtitle'] ?></span>
-								</div>
+					<div class="col-md-4">
+						<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(project-crud-main/assets/img/<?php echo $v['image'] ?>);">
+							<div class="overlay"></div>
+							<div class="text text-center p-4">
+								<h3><a href="#"><?php echo $v['title'] ?></a></h3>
+								<span><?php echo $v['subtitle'] ?></span>
 							</div>
 						</div>
-					<?php
-					} 
-					?>
-						<div class="col-md-4">
-							<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(project-crud-main/assets/img/<?php echo $v['image'] ?>);">
-								<div class="overlay"></div>
-								<div class="text text-center p-4">
-									<h3><a href="#"><?php echo $v['title'] ?></a></h3>
-									<span><?php echo $v['subtitle'] ?></span>
-								</div>
-							</div>
+					</div>
+				<?php
+				}
+				?>
+				<div class="col-md-4">
+					<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(project-crud-main/assets/img/<?php echo $v['image'] ?>);">
+						<div class="overlay"></div>
+						<div class="text text-center p-4">
+							<h3><a href="#"><?php echo $v['title'] ?></a></h3>
+							<span><?php echo $v['subtitle'] ?></span>
 						</div>
-					<?php
-					{
-					?>
+					</div>
+				</div>
+				<?php {
+				?>
 
-						<div class="col-md-8">
-							<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(project-crud-main/assets/img/<?php echo $v['image'] ?>);">
-								<div class="overlay"></div>
-								<div class="text text-center p-4">
-									<h3><a href="#"><?php echo $v['title'] ?></a></h3>
-									<span><?php echo $v['subtitle'] ?></span>
-								</div>
+					<div class="col-md-8">
+						<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(project-crud-main/assets/img/<?php echo $v['image'] ?>);">
+							<div class="overlay"></div>
+							<div class="text text-center p-4">
+								<h3><a href="#"><?php echo $v['title'] ?></a></h3>
+								<span><?php echo $v['subtitle'] ?></span>
 							</div>
 						</div>
-					<?php
-					}
-					?>
+					</div>
+				<?php
+				}
+				?>
 				<!-- <div class="col-md-8">
 					<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-1.jpg);">
 						<div class="overlay"></div>
@@ -518,24 +521,31 @@ $projects = mysqli_fetch_all($q_projects, MYSQLI_ASSOC);
 				</div>
 			</div>
 			<div class="row d-flex">
+				<?php foreach ($blog as $index => $v) {
+					?>
+
 				<div class="col-md-4 d-flex ftco-animate">
 					<div class="blog-entry justify-content-end">
-						<a href="single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+						<a href="single.html" class="block-20" style="background-image: url(project-crud-main/assets/img/<?php echo $v['image'] ?>);">
 						</a>
 						<div class="text mt-3 float-right d-block">
 							<div class="d-flex align-items-center mb-3 meta">
 								<p class="mb-0">
-									<span class="mr-2">June 21, 2019</span>
-									<a href="#" class="mr-2">Admin</a>
+									<span class="mr-2"><?php echo $v['created_at'] ?></span>
+									<a href="#" class="mr-2">Zootopia Police</a>
 									<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
 								</p>
 							</div>
-							<h3 class="heading"><a href="single.html">Why Lead Generation is Key for Business Growth</a></h3>
-							<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+							<h3 class="heading"><a href="single.html"><?php echo $v['title'] ?></a></h3>
+							<p><?php echo $v['subtitle'] ?></p>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4 d-flex ftco-animate">
+				<?php
+				}
+				?>
+
+				<!-- <div class="col-md-4 d-flex ftco-animate">
 					<div class="blog-entry justify-content-end">
 						<a href="single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
 						</a>
@@ -568,7 +578,7 @@ $projects = mysqli_fetch_all($q_projects, MYSQLI_ASSOC);
 							<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</section>

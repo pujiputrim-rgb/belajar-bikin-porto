@@ -43,7 +43,7 @@ if (isset($_POST['save'])) {
       header("location:projects.php?tambah-berhasil");
     }
   } else {
-    $update = mysqli_query($conn, "UPDATE projects SET title='$title', subtitle='$subtitle', image='$filename' WHERE id='$id'");
+    $update = mysqli_query($conn, "UPDATE projects SET title='$title', subtitle='$subtitle' WHERE id='$id'");
     header("location:projects.php?update-berhasil");
   }
 }
