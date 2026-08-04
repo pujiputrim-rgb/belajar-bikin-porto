@@ -17,6 +17,11 @@ $resume = mysqli_fetch_all($q_resume, MYSQLI_ASSOC);
 // SKILLS
 $q_skills = mysqli_query($conn, "SELECT * FROM skills ORDER BY id DESC");
 $skills = mysqli_fetch_all($q_skills, MYSQLI_ASSOC);
+
+
+// PROJECTS
+$q_projects = mysqli_query($conn, "SELECT * FROM projects ORDER BY id DESC");
+$projects = mysqli_fetch_all($q_projects, MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -320,11 +325,11 @@ $skills = mysqli_fetch_all($q_skills, MYSQLI_ASSOC);
 				?>
 					<div class="col-md-6 animate-box">
 						<div class="progress-wrap ftco-animate">
-							<h3 style= "margin-bottom: <?= $v['progress'] < 7 ? '40px' : '0' ?>;">
-								<?php echo $v['name']; ?></h3>
+							<h3 style="margin-bottom: <?= $v['progress'] < 10 ? '33px' : '5px' ?>;">
+								<?= htmlspecialchars($v['name']) ?></h3>
 							<div class="progress">
-								<div class="progress-bar color-<?= $index + 1 ?>" role="progressbar" 
-								aria-valuenow="<?php echo $v['progress']; ?>"
+								<div class="progress-bar color-<?= $index + 1 ?>" role="progressbar"
+									aria-valuenow="<?php echo $v['progress']; ?>"
 									aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $v['progress']; ?>%">
 									<span><?php echo $v['progress']; ?>%</span>
 								</div>
@@ -334,7 +339,7 @@ $skills = mysqli_fetch_all($q_skills, MYSQLI_ASSOC);
 				<?php
 				}
 				?>
-<!-- 
+				<!-- 
 				<div class="col-md-6 animate-box">
 					<div class="progress-wrap ftco-animate">
 						<h3>jQuery</h3>
@@ -405,26 +410,62 @@ $skills = mysqli_fetch_all($q_skills, MYSQLI_ASSOC);
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-4">
-					<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-4.jpg);">
-						<div class="overlay"></div>
-						<div class="text text-center p-4">
-							<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-							<span>Web Design</span>
+				<?php
+				foreach ($projects as $index => $v) {
+					$no = $index + 1;
+					if ($no % 4 == 0) {
+				?>
+						<div class="col-md-8">
+							<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(project-crud-main/assets/img/<?php echo $v['image'] ?>);">
+								<div class="overlay"></div>
+								<div class="text text-center p-4">
+									<h3><a href="#"><?php echo $v['title'] ?></a></h3>
+									<span><?php echo $v['subtitle'] ?></span>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
-				<div class="col-md-8">
-					<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-5.jpg);">
-						<div class="overlay"></div>
-						<div class="text text-center p-4">
-							<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-							<span>Web Design</span>
-						</div>
-					</div>
-				</div>
+					<?php
+					} else 
+					?>
 
-				<div class="col-md-8">
+						<div class="col-md-4">
+							<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(project-crud-main/assets/img/<?php echo $v['image'] ?>);">
+								<div class="overlay"></div>
+								<div class="text text-center p-4">
+									<h3><a href="#"><?php echo $v['title'] ?></a></h3>
+									<span><?php echo $v['subtitle'] ?></span>
+								</div>
+							</div>
+						</div>
+					<?php
+					} 
+					?>
+						<div class="col-md-4">
+							<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(project-crud-main/assets/img/<?php echo $v['image'] ?>);">
+								<div class="overlay"></div>
+								<div class="text text-center p-4">
+									<h3><a href="#"><?php echo $v['title'] ?></a></h3>
+									<span><?php echo $v['subtitle'] ?></span>
+								</div>
+							</div>
+						</div>
+					<?php
+					{
+					?>
+
+						<div class="col-md-8">
+							<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(project-crud-main/assets/img/<?php echo $v['image'] ?>);">
+								<div class="overlay"></div>
+								<div class="text text-center p-4">
+									<h3><a href="#"><?php echo $v['title'] ?></a></h3>
+									<span><?php echo $v['subtitle'] ?></span>
+								</div>
+							</div>
+						</div>
+					<?php
+					}
+					?>
+				<!-- <div class="col-md-8">
 					<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-1.jpg);">
 						<div class="overlay"></div>
 						<div class="text text-center p-4">
@@ -462,11 +503,10 @@ $skills = mysqli_fetch_all($q_skills, MYSQLI_ASSOC);
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</section>
-
 
 	<section class="ftco-section" id="blog-section">
 		<div class="container">

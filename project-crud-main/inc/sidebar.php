@@ -75,7 +75,15 @@
                             <p>Skills</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a
 
+                            href="projects.php"
+                            aria-expanded="false">
+                            <i class="fa fa-briefcase"></i>
+                            <p>Projects</p>
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a
 

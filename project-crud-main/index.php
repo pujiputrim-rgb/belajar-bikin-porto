@@ -1,5 +1,5 @@
 <?php
-include "config/koneksi.php";
+include __DIR__ . '/config/koneksi.php';
 session_start();
 session_regenerate_id();
 if (isset($_POST['login'])) { // jika tombol login di klik

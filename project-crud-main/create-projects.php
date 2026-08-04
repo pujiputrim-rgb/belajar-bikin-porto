@@ -8,17 +8,48 @@ if (!isset($_SESSION['NAME'])) {
   exit();
 }
 
+$id     = isset($_GET['edit']) ? $_GET['edit'] : '';
+$query  = mysqli_query($conn, "SELECT * FROM projects WHERE id='$id'");
+$row   = mysqli_fetch_assoc($query);
+
+// jika tombol save di taken
+if (isset($_POST['save'])) {
+  $image = $_FILES['image'];
+  $title = $_POST['title'];
+  $subtitle = $_POST['subtitle'];
+
+  if ($image['error'] == 0) {
+    $filename = uniqid() . "_" . basename($image['name']);
+    $filepath = "assets/img/" . $filename;
+
+    if ($id && !empty($row['image'])) {
+      $old_picture_path = "assets/img/" . $row['image'];
+      if (file_exists($old_picture_path)) {
+        unlink($old_picture_path);
+      }
+    }
+    move_uploaded_file($image['tmp_name'], $filepath);
+
+
+    // masukan kedalam users sebutkan kolom di table user nilainya 
+    //diambil dari user nginput 
+    if ($id) {
+      // update bersama gambar
+      // query update
+      $update = mysqli_query($conn, "UPDATE projects SET title='$title', subtitle='$subtitle', image='$filename' WHERE id='$id'");
+      header("location:projects.php?update-berhasil");
+    } else {
+      $insert = mysqli_query($conn, "INSERT INTO projects (title, subtitle, image) VALUES ('$title','$subtitle','$filename')");
+      header("location:projects.php?tambah-berhasil");
+    }
+  } else {
+    $update = mysqli_query($conn, "UPDATE projects SET title='$title', subtitle='$subtitle', image='$filename' WHERE id='$id'");
+    header("location:projects.php?update-berhasil");
+  }
+}
+
 // tampilin semua data dari table user urutkan dari terbesar ke terkecil
 
-$query = mysqli_query($conn, "SELECT * FROM resume ORDER BY id DESC");
-$rows = mysqli_fetch_all($query, MYSQLI_ASSOC);
-
-// jika params delete ada 
-if (isset($_GET['delete'])) {
-  $delete = $_GET['delete'];
-  $delete = mysqli_query($conn, "DELETE FROM resume WHERE id='$delete'");
-  header("location:resume.php?hapus=berhasil");
-}
 
 
 ?>
@@ -81,52 +112,39 @@ if (isset($_GET['delete'])) {
       <div class="container">
         <div class="page-inner">
           <div
-            class="d-flex align-items-left align-items-md-center flex-column 
-            flex-md-row pt-2 pb-4">
+            class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
             <div>
-              <h3 class="fw-bold mb-3">Resume</h3>
-            </div>
-            <div class="ms-md-auto py-2 py-md-0">
-              <!-- <a href="#" class="btn btn-label-info btn-round me-2">Manage</a> -->
-              <a href="create-resume.php" class="btn btn-primary 
-              btn-round">Create New Resume</a>
+              <h3 class="fw-bold mb-3"><?php echo isset($_GET['edit']) ? 'Edit Project' : 'Create New Project' ?></h3>
             </div>
           </div>
           <div class="row">
             <div class="col-sm-6 col-md-12">
               <div class="card">
                 <div class="card-body">
-                  <table class="table table-bordered table-striped"> <!-- bordered = warna border, striped = warna ganjil genap bisa beda tablenya -->
-                    <thead>
-                      <tr>
-                        <th>No</th>
-                        <th>Title</th>
-                        <th>Years</th>
-                        <th>Subtitle</th>
-                        <th>Description</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php foreach ($rows as $index => $row): ?>
-                        <tr>
-                          <td><?php echo $index += 1 ?></td>
-                          <td><?php echo $row['title'] ?></td>
-                          <td><?php echo $row['year_start'] . " - " . $row['year_end'] ?></td>
-                          <td><?php echo $row['subtitle'] ?></td>
-                          <td><?php echo $row['description'] ?></td>
-                          <td>
-                            <a class="btn btn-success btn-sm"
-                              href="create-resume.php?edit=<?php echo $row['id'] ?>">Edit</a>
-
-                            <a onclick="return confirm('Are you sure want to delete this data?')"
-                              class="btn btn-danger btn-sm"
-                              href="resume.php?delete=<?php echo $row['id'] ?>">Delete</a>
-                          </td>
-                        </tr>
-                      <?php endforeach ?>
-                    </tbody>
-                  </table>
+                  <form action="" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                      <label for="" class="form-label fw-bold">Title</label>
+                      <input type="text"
+                        class="form-control" name="title"
+                        placeholder="Enter title" required value="<?php echo ($id) ? $row['title'] : '' ?>">
+                    </div>
+                    <div class="mb-3">
+                      <label for="" class="form-label fw-bold">Subtitle</label>
+                      <input type="text"
+                        class="form-control" name="subtitle"
+                        placeholder="Enter subtitle" required value="<?php echo ($id) ? $row['subtitle'] : '' ?>">
+                    </div>
+                    <div class="mb-3">
+                      <label for="" class="form-label fw-bold">Image</label>
+                      <input type="file"
+                        class="form-control" name="image"
+                        value="<?php echo ($id) ? $row['image'] : '' ?>">
+                    </div>
+                    <div class="mb-3">
+                      <button class="btn btn-primary" name="save" type="submit">
+                        Save</button>
+                    </div>
+                  </form>
                 </div>
               </div>
 
