@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Agu 2026 pada 10.09
+-- Waktu pembuatan: 05 Agu 2026 pada 16.27
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `project_crud3`
+-- Database: `portofolio`
 --
 
 -- --------------------------------------------------------
@@ -136,7 +136,9 @@ CREATE TABLE `resume` (
 
 INSERT INTO `resume` (`id`, `title`, `year_start`, `year_end`, `subtitle`, `description`, `created_at`, `updated_at`) VALUES
 (1, 'Judy Nick', '2020', '2026', 'Judy Hopps Nick Wilde', 'Zootopia 1 Zootopia 2 Zootopia 3', '2026-08-01 07:32:45', '2026-08-01 08:03:12'),
-(2, 'brraahhh', '2022', '2026', 'ggrraahh', 'kcaw kcaw kcaw', '2026-08-01 08:06:38', NULL);
+(2, 'brraahhh', '2022', '2026', 'ggrraahh', 'kcaw kcaw kcaw', '2026-08-01 08:06:38', NULL),
+(3, 'asasasasas', '2022', '2026', 'asasasasasasasasa', ' kecimpring gula jawakecimpring gula jawa kecimpring gula jawa kecimpring gula jawakecimpring gula jawa kecimpring gula jawa', '2026-08-05 14:03:32', NULL),
+(4, 'yhhguhuhuhuh', '2024', '2025', 'erwoitpowejtfeaofjeaop', 'wawawawawawawawawawawawa awaw awawawawaawa', '2026-08-05 14:04:26', NULL);
 
 -- --------------------------------------------------------
 
@@ -161,7 +163,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `website_name`, `email`, `phone`, `address`, `description`, `ig`, `created_at`, `updated_at`) VALUES
-(1, 'meimei-card.com       ', 'meimei@gmail.com', '085475512121', 'Jalan Zootopia, Gang Mamalia', 'deskripsi', 'meimei/instagram.com       ', '2026-07-30 02:51:40', '2026-08-01 06:58:30');
+(1, 'puji putri meidi', 'pujiputrim@gmail.com', '087730711039', 'Jalan Malaka III Gang 3 No. 110 RT 002 / RW 006, Kel. Malaka Sari, Kec. Duren Sawit, Jakarta Timur 13460', 'Mahasiswa Ilmu Komunikasi yang pada saat ini bergabung sebagai anggota Peserta Kelas Website Programming PPKD Jakarta Pusat. Belajar mengenai HTML, CSS+, Javascript, Laravel, PHP. Saat ini mengeksplor', 'linkedin.com/in/pujiiputrim', '2026-07-30 02:51:40', '2026-08-05 13:40:23');
 
 -- --------------------------------------------------------
 
@@ -183,9 +185,10 @@ CREATE TABLE `skills` (
 
 INSERT INTO `skills` (`id`, `name`, `progress`, `created_at`, `updated_at`) VALUES
 (1, 'HTML 5', 50, '2026-08-03 06:53:24', '2026-08-03 06:53:40'),
-(2, 'PHOTOSHOP', 90, '2026-08-03 06:54:32', NULL),
+(2, 'Adobe Explore', 80, '2026-08-03 06:54:32', '2026-08-05 13:45:16'),
 (3, 'CSS3', 67, '2026-08-03 06:54:48', NULL),
-(5, 'FIGMA', 95, '2026-08-03 07:21:17', NULL);
+(5, 'Public Speaking', 95, '2026-08-03 07:21:17', '2026-08-05 13:48:07'),
+(6, 'Google Workspace', 85, '2026-08-05 13:44:56', NULL);
 
 -- --------------------------------------------------------
 
@@ -330,7 +333,7 @@ ALTER TABLE `projects`
 -- AUTO_INCREMENT untuk tabel `resume`
 --
 ALTER TABLE `resume`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `settings`
@@ -342,7 +345,7 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT untuk tabel `skills`
 --
 ALTER TABLE `skills`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `sliders`
