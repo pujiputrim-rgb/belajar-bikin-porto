@@ -28,18 +28,18 @@ $q_blog = mysqli_query($conn, "SELECT * FROM blog ORDER BY id DESC");
 $blog = mysqli_fetch_all($q_blog, MYSQLI_ASSOC);
 
 // CONTACT
-if (isset ($_POST['submit'])) {
+if (isset($_POST['submit'])) {
 	$name = $_POST['name'];
 	$email = $_POST['email'];
 	$subject = $_POST['subject'];
 	$message = $_POST['message'];
-	
+
 	// DML /SQL
 	// MASUKKAN KE DALAM TABLE contact (name, email, subject, message) VALUES ('$name', '$email', '$subject', '$message')
 	$insert = mysqli_query($conn, "INSERT INTO contacts (name,email,subject,message) 
 	VALUES ('$name', '$email', '$subject', '$message')");
 	header("location:index.php?tambah=success");
-	}
+}
 ?>
 
 <!DOCTYPE html>
@@ -102,7 +102,7 @@ if (isset ($_POST['submit'])) {
 					<div class="overlay"></div>
 					<div class="container">
 						<div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-							<div class="one-third js-fullheight order-md-last img" style="background-image:url(project-crud-main/assets/img/<?= $v['image'] ?>);">
+							<div class="one-third js-fullheight order-md-last img" style="background-image:url(admin/assets/img/<?= $v['image'] ?>);">
 								<div class="overlay"></div>
 							</div>
 							<div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
@@ -152,7 +152,7 @@ if (isset ($_POST['submit'])) {
 				<div class="col-md-6 col-lg-5 d-flex">
 					<div class="img-about img d-flex align-items-stretch">
 						<div class="overlay"></div>
-						<div class="img d-flex align-self-stretch align-items-center" style="background-image:url(project-crud-main/assets/img/<?= $v['image'] ?>);">
+						<div class="img d-flex align-self-stretch align-items-center" style="background-image:url(admin/assets/img/<?= $v['image'] ?>);">
 						</div>
 					</div>
 				</div>
@@ -161,10 +161,10 @@ if (isset ($_POST['submit'])) {
 						<div class="col-md-12 heading-section ftco-animate">
 							<h1 class="big">About</h1>
 							<h2 class="mb-4">About Me</h2>
-							<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+							<p><?php echo $about['description']; ?></p>
 							<ul class="about-info mt-4 px-md-0 px-2">
-								<li class="d-flex"><span>Name:</span> <span>Judy Hopps</span></li>
-								<li class="d-flex"><span>Date of birth:</span> <span>January 01, 2000</span></li>
+								<li class="d-flex"><span>Name:</span> <span>Puji Putri Meidiani</span></li>
+								<li class="d-flex"><span>Date of birth:</span> <span>Jakarta, 20 Mei 2004</span></li>
 								<li class="d-flex"><span>Address:</span> <span><?php echo $about['address']; ?></span></li>
 								<li class="d-flex"><span>Website:</span> <span><?php echo $about['website_name']; ?></span></li>
 								<li class="d-flex"><span>Email:</span> <span><?php echo $about['email']; ?></span></li>
@@ -192,7 +192,12 @@ if (isset ($_POST['submit'])) {
 				<div class="col-md-10 heading-section text-center ftco-animate">
 					<h1 class="big big-2">Resume</h1>
 					<h2 class="mb-4">Resume</h2>
-					<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+					<p>Mahasiswa Ilmu Komunikasi dengan pengalaman dalam pelayanan publik, pengelolaan data, dan komunikasi pelanggan.
+						Terbiasa berinteraksi dengan berbagai karakter pelanggan secara langsung maupun melalui platform digital dengan
+						pendekatan yang persuasif, responsif, dan berorientasi solusi. Mampu mengelola data secara akurat, menangani
+						pertanyaan pelanggan, serta membangun hubungan yang positif untuk meningkatkan kepuasan pelanggan. Memiliki
+						kemampuan komunikasi interpersonal, administrasi, dan pemecahan masalah yang didukung pengalaman organisasi dan
+						kegiatan lapangan.</p>
 				</div>
 			</div>
 			<div class="row">
@@ -334,7 +339,6 @@ if (isset ($_POST['submit'])) {
 				<div class="col-md-12 heading-section text-center ftco-animate">
 					<h1 class="big big-2">Skills</h1>
 					<h2 class="mb-4">My Skills</h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
 				</div>
 			</div>
 			<div class="row">
@@ -434,7 +438,7 @@ if (isset ($_POST['submit'])) {
 					if ($no % 4 == 0) {
 				?>
 						<div class="col-md-8">
-							<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(project-crud-main/assets/img/<?php echo $v['image'] ?>);">
+							<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(admin/assets/img/<?php echo $v['image'] ?>);">
 								<div class="overlay"></div>
 								<div class="text text-center p-4">
 									<h3><a href="#"><?php echo $v['title'] ?></a></h3>
@@ -447,7 +451,7 @@ if (isset ($_POST['submit'])) {
 					?>
 
 					<div class="col-md-4">
-						<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(project-crud-main/assets/img/<?php echo $v['image'] ?>);">
+						<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(admin/assets/img/<?php echo $v['image'] ?>);">
 							<div class="overlay"></div>
 							<div class="text text-center p-4">
 								<h3><a href="#"><?php echo $v['title'] ?></a></h3>
@@ -459,7 +463,7 @@ if (isset ($_POST['submit'])) {
 				}
 				?>
 				<div class="col-md-4">
-					<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(project-crud-main/assets/img/<?php echo $v['image'] ?>);">
+					<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(admin/assets/img/<?php echo $v['image'] ?>);">
 						<div class="overlay"></div>
 						<div class="text text-center p-4">
 							<h3><a href="#"><?php echo $v['title'] ?></a></h3>
@@ -471,7 +475,7 @@ if (isset ($_POST['submit'])) {
 				?>
 
 					<div class="col-md-8">
-						<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(project-crud-main/assets/img/<?php echo $v['image'] ?>);">
+						<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(admin/assets/img/<?php echo $v['image'] ?>);">
 							<div class="overlay"></div>
 							<div class="text text-center p-4">
 								<h3><a href="#"><?php echo $v['title'] ?></a></h3>
@@ -536,25 +540,25 @@ if (isset ($_POST['submit'])) {
 			</div>
 			<div class="row d-flex">
 				<?php foreach ($blog as $index => $v) {
-					?>
+				?>
 
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="single.html" class="block-20" style="background-image: url(project-crud-main/assets/img/<?php echo $v['image'] ?>);">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<div class="d-flex align-items-center mb-3 meta">
-								<p class="mb-0">
-									<span class="mr-2"><?php echo $v['created_at'] ?></span>
-									<a href="#" class="mr-2">Zootopia Police</a>
-									<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-								</p>
+					<div class="col-md-4 d-flex ftco-animate">
+						<div class="blog-entry justify-content-end">
+							<a href="single.html" class="block-20" style="background-image: url(admin/assets/img/<?php echo $v['image'] ?>);">
+							</a>
+							<div class="text mt-3 float-right d-block">
+								<div class="d-flex align-items-center mb-3 meta">
+									<p class="mb-0">
+										<span class="mr-2"><?php echo $v['created_at'] ?></span>
+										<a href="#" class="mr-2">Zootopia Police</a>
+										<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
+									</p>
+								</div>
+								<h3 class="heading"><a href="single.html"><?php echo $v['title'] ?></a></h3>
+								<p><?php echo $v['subtitle'] ?></p>
 							</div>
-							<h3 class="heading"><a href="single.html"><?php echo $v['title'] ?></a></h3>
-							<p><?php echo $v['subtitle'] ?></p>
 						</div>
 					</div>
-				</div>
 				<?php
 				}
 				?>
@@ -636,7 +640,7 @@ if (isset ($_POST['submit'])) {
 		</div>
 	</section>
 
-	<section class="ftco-section ftco-hireme img margin-top" style="background-image: url(images/bg_1.jpg)">
+	<section class="ftco-section ftco-hireme img margin-top" style="background-image: url(https://i.pinimg.com/1200x/cf/38/5c/cf385ce8db40256c47b6920dc5ee37b4.jpg)">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-7 ftco-animate text-center">
@@ -654,7 +658,7 @@ if (isset ($_POST['submit'])) {
 				<div class="col-md-7 heading-section text-center ftco-animate">
 					<h1 class="big big-2">Contact</h1>
 					<h2 class="mb-4">Contact Me</h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+					<p>Berminat untuk bekerja sama dengan saya? Silakan hubungi saya melalui formulir atau kontak yang tertera di bawah ini.</p>
 				</div>
 			</div>
 
@@ -665,7 +669,7 @@ if (isset ($_POST['submit'])) {
 							<span class="icon-map-signs"></span>
 						</div>
 						<h3 class="mb-4">Address</h3>
-						<p>198 West 21th Street, Suite 721 New York NY 10016</p>
+						<p>Malaka 3, Malaka Sari, Duren Sawit, Jakarta Timur 13460</p>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-3 d-flex ftco-animate">
@@ -674,7 +678,7 @@ if (isset ($_POST['submit'])) {
 							<span class="icon-phone2"></span>
 						</div>
 						<h3 class="mb-4">Contact Number</h3>
-						<p><a href="tel://1234567920">+ 1235 2355 98</a></p>
+						<p><a href="tel://+6287730711039">+62 877 3071 1039</a></p>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-3 d-flex ftco-animate">
@@ -683,7 +687,7 @@ if (isset ($_POST['submit'])) {
 							<span class="icon-paper-plane"></span>
 						</div>
 						<h3 class="mb-4">Email Address</h3>
-						<p><a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+						<p><a href="mailto:pujiputri@gmail.com">pujiputri@gmail.com</a></p>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-3 d-flex ftco-animate">
@@ -692,7 +696,7 @@ if (isset ($_POST['submit'])) {
 							<span class="icon-globe"></span>
 						</div>
 						<h3 class="mb-4">Website</h3>
-						<p><a href="#">yoursite.com</a></p>
+						<p><a href="linkedin.com/in/pujiiputrim">pujiputrim.com</a></p>
 					</div>
 				</div>
 			</div>

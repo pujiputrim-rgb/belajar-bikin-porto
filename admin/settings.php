@@ -71,7 +71,7 @@ if (isset($_GET['delete'])) {
                   required value="<?php echo isset($row) ? $row['email'] : '' ?>">
               </div>
               <div class="mb-3">
-                <label for="" class="form-label fw-bold">Instagram Link</label>
+                <label for="" class="form-label fw-bold">Link</label>
                 <input type="text" name="ig" class="form-control"
                   value="<?php echo isset($row) ? $row['ig'] : '' ?>">
               </div>
