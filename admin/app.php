@@ -1,41 +1,15 @@
 <?php
+ob_start();
 session_start();
 session_regenerate_id();
 
 include __DIR__ . '/config/koneksi.php';
+// isset: tidak kosong
+// !isset: kosong
 if (!isset($_SESSION['NAME'])) {
   header("location:index.php");
   exit();
 }
-
-$id     = isset($_GET['edit']) ? $_GET['edit'] : '';
-$query  = mysqli_query($conn, "SELECT * FROM skills WHERE id='$id'");
-$row   = mysqli_fetch_assoc($query);
-
-// jika tombol save di taken
-if (isset($_POST['save'])) {
-  $name     = $_POST['name'];
-  $progress    = $_POST['progress'];
-
-
-  // masukan kedalam users sebutkan kolom di table user nilainya 
-  //diambil dari user nginput 
-  if ($id) {
-    // query update
-    $update = mysqli_query($conn, "UPDATE skills SET name='$name',
-    progress='$progress' WHERE id='$id'");
-    header("location:skills.php?update-berhasil");
-  } else {
-    $insert = mysqli_query($conn, "INSERT INTO skills (name, progress)
-    VALUES ('$name','$progress')");
-    header("location:skills.php?tambah-berhasil");
-    exit();
-  }
-}
-
-// tampilin semua data dari table user urutkan dari terbesar ke terkecil
-
-
 
 ?>
 <!DOCTYPE html>
@@ -43,7 +17,7 @@ if (isset($_POST['save'])) {
 
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kaiadmin - Bootstrap 5 Admin Dashboard</title>
+  <title>Portofolio Web Admin</title>
   <meta
     content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     name="viewport" />
@@ -66,7 +40,7 @@ if (isset($_POST['save'])) {
         <div class="main-header-logo">
           <!-- Logo Header -->
           <div class="logo-header" data-background-color="dark">
-            <a href="index.html" class="logo">
+            <a href="#" class="logo">
               <img
                 src="assets/img/kaiadmin/logo_light.svg"
                 alt="navbar brand"
@@ -96,40 +70,21 @@ if (isset($_POST['save'])) {
 
       <div class="container">
         <div class="page-inner">
-          <div
-            class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
-            <div>
-              <h3 class="fw-bold mb-3"><?php echo isset($_GET['edit']) ? 'Edit Skill' : 'Create New Skill' ?></h3>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6 col-md-12">
-              <div class="card">
-                <div class="card-body">
-                  
-                  <form action="" method="post">
-                    <div class="mb-3">
-                      <label for="" class="form-label fw-bold">Name</label>
-                      <input type="text"
-                        class="form-control" name="name"
-                        placeholder="Enter name" required value="<?php echo ($id) ? $row['name'] : '' ?>">
-                    </div>
-                    <div class="mb-3">
-                      <label for="" class="form-label fw-bold">Progress</label>
-                      <input type="number"
-                        class="form-control" name="progress"
-                        placeholder="Enter progress" required value="<?php echo ($id) ? $row['progress'] : '' ?>">
-                    </div>
-                    <div class="mb-3">
-                      <button class="btn btn-primary" name="save" type="submit">
-                        Save</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-
-            </div>
-          </div>
+          <!-- 
+            GET : URL ?id, ?edit, ?delete 
+            -->
+            <?php
+              if(isset($_GET['page'])){
+              // file_exists: cek apakah file ada
+              if(file_exists($_GET['page']. '.php')){
+                include $_GET['page']. '.php';
+              }else{
+              
+                include 'notfound.php';
+              }
+              }
+            ?>
+            
         </div>
       </div>
 

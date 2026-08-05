@@ -29,7 +29,7 @@
                     <li class="nav-item active">
                         <a
 
-                            href="dashboard.php"
+                            href="app.php?page=dashboard"
 
                             aria-expanded="false">
                             <i class="fas fa-home"></i>
@@ -39,7 +39,7 @@
                     <li class="nav-item">
                         <a
 
-                            href="user.php"
+                            href="app.php?page=user"
 
                             aria-expanded="false">
                             <i class="fas fa-user"></i>
@@ -49,7 +49,7 @@
                     <li class="nav-item">
                         <a
 
-                            href="sliders.php"
+                            href="app.php?page=sliders"
                             aria-expanded="false">
                             <i class="fa fa-image"></i>
                             <p>Slider</p>
@@ -58,7 +58,7 @@
                     <li class="nav-item">
                         <a
 
-                            href="resume.php"
+                            href="app.php?page=resume"
 
                             aria-expanded="false">
                             <i class="fa fa-file"></i>
@@ -68,7 +68,7 @@
                     <li class="nav-item">
                         <a
 
-                            href="skills.php"
+                            href="app.php?page=skills"
 
                             aria-expanded="false">
                             <i class="fa fa-code"></i>
@@ -78,7 +78,7 @@
                     <li class="nav-item">
                         <a
 
-                            href="projects.php"
+                            href="app.php?page=projects"
                             aria-expanded="false">
                             <i class="fa fa-briefcase"></i>
                             <p>Projects</p>
@@ -87,7 +87,7 @@
                     <li class="nav-item">
                         <a
 
-                            href="blog.php"
+                            href="app.php?page=blog"
                             aria-expanded="false">
                             <i class="fa fa-receipt"></i>
                             <p>Blog</p>
@@ -96,7 +96,7 @@
                     <li class="nav-item">
                         <a
 
-                            href="contacts.php"
+                            href="app.php?page=contacts"
 
                             aria-expanded="false">
                             <i class="fa fa-address-book"></i>
@@ -106,7 +106,7 @@
                     <li class="nav-item">
                         <a
 
-                            href="settings.php"
+                            href="app.php?page=settings"
 
                             aria-expanded="false">
                             <i class="fa fa-wrench"></i>

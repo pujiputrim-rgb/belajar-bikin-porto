@@ -1,5 +1,5 @@
 <?php
-include "project-crud-main/config/koneksi.php";
+include "admin/config/koneksi.php";
 $q_slider = mysqli_query($conn, "SELECT * FROM sliders
 slider WHERE is_active =1 ORDER BY id DESC LIMIT 2");
 $sliders = mysqli_fetch_all($q_slider, MYSQLI_ASSOC);
@@ -25,7 +25,21 @@ $projects = mysqli_fetch_all($q_projects, MYSQLI_ASSOC);
 
 // BLOG
 $q_blog = mysqli_query($conn, "SELECT * FROM blog ORDER BY id DESC");
-$blog = mysqli_fetch_all($q_blog, MYSQLI_ASSOC);	
+$blog = mysqli_fetch_all($q_blog, MYSQLI_ASSOC);
+
+// CONTACT
+if (isset ($_POST['submit'])) {
+	$name = $_POST['name'];
+	$email = $_POST['email'];
+	$subject = $_POST['subject'];
+	$message = $_POST['message'];
+	
+	// DML /SQL
+	// MASUKKAN KE DALAM TABLE contact (name, email, subject, message) VALUES ('$name', '$email', '$subject', '$message')
+	$insert = mysqli_query($conn, "INSERT INTO contacts (name,email,subject,message) 
+	VALUES ('$name', '$email', '$subject', '$message')");
+	header("location:index.php?tambah=success");
+	}
 ?>
 
 <!DOCTYPE html>
@@ -685,21 +699,21 @@ $blog = mysqli_fetch_all($q_blog, MYSQLI_ASSOC);
 
 			<div class="row no-gutters block-9">
 				<div class="col-md-6 order-md-last d-flex">
-					<form action="#" class="bg-light p-4 p-md-5 contact-form">
+					<form method="post" class="bg-light p-4 p-md-5 contact-form">
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Your Name">
+							<input type="text" class="form-control" name="name" placeholder="Your Name">
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Your Email">
+							<input type="email" class="form-control" name="email" placeholder="Your Email">
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Subject">
+							<input type="text" class="form-control" name="subject" placeholder="Subject">
 						</div>
 						<div class="form-group">
-							<textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+							<textarea name="message" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
 						</div>
 						<div class="form-group">
-							<input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+							<input type="submit" name="submit" value="Send Message" class="btn btn-primary py-3 px-5">
 						</div>
 					</form>
 
