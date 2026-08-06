@@ -1,0 +1,37 @@
+/* 
+Inspirasi Palet: Matcha & Berry (Terinspirasi dari image_0.png)
+- Matcha (#8E9546) - Hijau Matcha lembut
+- Strawberry Milk (#F28892) - Pink Susu Pastel
+- Wild Primrose (#E9E29B) - Kuning Primrose Lembut (digunakan untuk teks terang)
+*/
+
+/* 1. Background utama (Matcha Lembut) */
+body, .ftco-section {
+    background-color: #8E9546 !important; /* Matcha Lembut sebagai base */
+    color: #E9E29B !important; /* Wild Primrose untuk teks utama agar kontras */
+}
+
+/* 2. Warna teks utama agar kelihatan jelas (Wild Primrose - Paling Terang) */
+body p, .about-info li span, .heading-section h2 {
+    color: #E9E29B !important;
+}
+
+/* 3. Ghost Text / Teks Bayangan (Strawberry Milk dengan Transparansi) */
+.heading-section h1.big {
+    color: #F28892 !important; /* Strawberry Milk */
+    opacity: 0.25 !important; /* Transparansi rendah agar halus */
+    position: absolute !important;
+    top: 40px !important; 
+    z-index: 0 !important;
+}
+
+/* 4. Memastikan teks judul utama tetap di depan bayangan */
+.heading-section p, .heading-section h2 {
+    position: relative;
+    z-index: 2 !important;
+}
+
+/* 5. Warna aksen untuk link atau elemen kecil (Strawberry Milk Solid) */
+a {
+    color: #F28892 !important; /* Gunakan pink yang sama untuk link/aksesoris */
+}

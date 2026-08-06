@@ -66,6 +66,7 @@ if (isset($_POST['submit'])) {
 	<link rel="stylesheet" href="css/flaticon.css">
 	<link rel="stylesheet" href="css/icomoon.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/custom.css">
 </head>
 
 <body body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -83,7 +84,7 @@ if (isset($_POST['submit'])) {
 					<li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
 					<li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
 					<li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
-					<li class="nav-item"><a href="#services-section" class="nav-link"><span>Services</span></a></li>
+					<!-- <li class="nav-item"><a href="#services-section" class="nav-link"><span>Services</span></a></li> -->
 					<li class="nav-item"><a href="#skills-section" class="nav-link"><span>Skills</span></a></li>
 					<li class="nav-item"><a href="#projects-section" class="nav-link"><span>Projects</span></a></li>
 					<li class="nav-item"><a href="#blog-section" class="nav-link"><span>My Blog</span></a></li>
@@ -174,10 +175,10 @@ if (isset($_POST['submit'])) {
 					</div>
 					<div class="counter-wrap ftco-animate d-flex mt-md-3">
 						<div class="text">
-							<p class="mb-4">
+							<!-- <p class="mb-4">
 								<span class="number" data-number="120">0</span>
 								<span>Project complete</span>
-							</p>
+							</p> -->
 							<p><a href="#" class="btn btn-primary py-3 px-3">Download CV</a></p>
 						</div>
 					</div>
@@ -257,7 +258,7 @@ if (isset($_POST['submit'])) {
 		</div>
 	</section>
 
-	<section class="ftco-section" id="services-section">
+	<!-- <section class="ftco-section" id="services-section">
 		<div class="container">
 			<div class="row justify-content-center py-5 mt-5">
 				<div class="col-md-12 heading-section text-center ftco-animate">
@@ -330,7 +331,7 @@ if (isset($_POST['submit'])) {
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 
 
 	<section class="ftco-section" id="skills-section">
@@ -428,7 +429,7 @@ if (isset($_POST['submit'])) {
 				<div class="col-md-12 heading-section text-center ftco-animate">
 					<h1 class="big big-2">Projects</h1>
 					<h2 class="mb-4">Our Projects</h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+					<p>Masukin foto foto dokumentasi pas dulu magang atau kerja mirip di blog</p>
 				</div>
 			</div>
 			<div class="row">
@@ -601,7 +602,7 @@ if (isset($_POST['submit'])) {
 		</div>
 	</section>
 
-	<section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
+	<!-- <section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
 		<div class="container">
 			<div class="row d-md-flex align-items-center">
 				<div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
@@ -638,7 +639,7 @@ if (isset($_POST['submit'])) {
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 
 	<section class="ftco-section ftco-hireme img margin-top" style="background-image: url(https://i.pinimg.com/1200x/cf/38/5c/cf385ce8db40256c47b6920dc5ee37b4.jpg)">
 		<div class="container">
@@ -687,7 +688,7 @@ if (isset($_POST['submit'])) {
 							<span class="icon-paper-plane"></span>
 						</div>
 						<h3 class="mb-4">Email Address</h3>
-						<p><a href="mailto:pujiputri@gmail.com">pujiputri@gmail.com</a></p>
+						<p><a href="mailto:pujiputrim@gmail.com">pujiputrim@gmail.com</a></p>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-3 d-flex ftco-animate">
@@ -696,7 +697,7 @@ if (isset($_POST['submit'])) {
 							<span class="icon-globe"></span>
 						</div>
 						<h3 class="mb-4">Website</h3>
-						<p><a href="linkedin.com/in/pujiiputrim">pujiputrim.com</a></p>
+						<p><a href="linkedin.com/in/pujiiputrim">linkedin</a></p>
 					</div>
 				</div>
 			</div>
@@ -724,7 +725,7 @@ if (isset($_POST['submit'])) {
 				</div>
 
 				<div class="col-md-6 d-flex">
-					<div class="img" style="background-image: url(images/about.jpg);"></div>
+					<div class="img" style="background-image: url(admin/assets/img/<?php echo $v['image'] ?>);"></div>
 				</div>
 			</div>
 		</div>
