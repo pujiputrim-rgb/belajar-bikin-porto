@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Agu 2026 pada 16.27
+-- Waktu pembuatan: 06 Agu 2026 pada 10.05
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -41,9 +41,9 @@ CREATE TABLE `blog` (
 --
 
 INSERT INTO `blog` (`id`, `image`, `title`, `subtitle`, `created_at`, `updated_at`) VALUES
-(1, '6a71984a6ebb4_vege-cat.jpg', 'icikiwir', 'awas ada sule', '2026-08-04 07:44:10', NULL),
+(1, '6a719bce1f149_orang-ijo.jpg', 'icikiwir', 'awas ada sule', '2026-08-04 07:44:10', '2026-08-06 00:56:50'),
 (2, '6a719bce1f149_orang-ijo.jpg', 'ahaydeee', 'prikitiw', '2026-08-04 07:59:10', NULL),
-(3, '6a719bff0399c_vege-cat.jpg', 'aren gentong', 'kucing tabby gembrot my kesukaan', '2026-08-04 07:59:59', NULL);
+(3, '6a719bce1f149_orang-ijo.jpg', 'aren gentong', 'kucing tabby gembrot my kesukaan', '2026-08-04 07:59:59', '2026-08-06 00:56:47');
 
 -- --------------------------------------------------------
 
@@ -216,8 +216,8 @@ CREATE TABLE `sliders` (
 --
 
 INSERT INTO `sliders` (`id`, `title`, `subtitle`, `description`, `button1_text`, `button1_link`, `button2_text`, `button2_link`, `image`, `is_active`, `created_at`, `updated_at`) VALUES
-(14, 'Judy Hopps', 'The Intelegent Bunny', 'Go found the momma of Cops life in Zootopia Movies, 3 seasons', 'Judy', 'https://youtu.be/VyDwTRFHQqY?si=MkE07tH2PKhGjEpQ', 'Hopps', 'https://youtu.be/VyDwTRFHQqY?si=MkE07tH2PKhGjEpQ', '6a6d931f53046_giphy-judyhopps.gif', 1, '2026-08-01 06:33:03', '2026-08-01 06:39:27'),
-(16, 'Nick Wilde', 'The silly foxy guy', 'Nick Wilde the sexy fox in Zootopia universe', 'Nick', 'https://youtu.be/VyDwTRFHQqY?si=MkE07tH2PKhGjEpQ', 'Wilde', 'https://youtu.be/VyDwTRFHQqY?si=MkE07tH2PKhGjEpQ', '6a6d947d26b91_nick-wilde.gif', 1, '2026-08-01 06:38:53', NULL);
+(14, 'Puji Putri Meidiani', 'Web Developer', 'codingan html css javascript ', 'icon ig', 'https://youtu.be/VyDwTRFHQqY?si=MkE07tH2PKhGjEpQ', 'icon linkedin', 'https://youtu.be/VyDwTRFHQqY?si=MkE07tH2PKhGjEpQ', '6a6d931f53046_giphy-judyhopps.gif', 1, '2026-08-01 06:33:03', '2026-08-06 07:42:06'),
+(16, 'Ilmu Komunikasi', 'Prodi Ilmu Politik Hukum dan Sosial', 'Komunikasi dalam lingkup global dari berbagai sisi ', 'icon ig', 'https://youtu.be/VyDwTRFHQqY?si=MkE07tH2PKhGjEpQ', 'icon linkedin', 'https://youtu.be/VyDwTRFHQqY?si=MkE07tH2PKhGjEpQ', '6a6d947d26b91_nick-wilde.gif', 1, '2026-08-01 06:38:53', NULL);
 
 -- --------------------------------------------------------
 
