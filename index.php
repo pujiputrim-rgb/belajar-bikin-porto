@@ -87,7 +87,7 @@ if (isset($_POST['submit'])) {
 					<!-- <li class="nav-item"><a href="#services-section" class="nav-link"><span>Services</span></a></li> -->
 					<li class="nav-item"><a href="#skills-section" class="nav-link"><span>Skills</span></a></li>
 					<li class="nav-item"><a href="#projects-section" class="nav-link"><span>Projects</span></a></li>
-					<li class="nav-item"><a href="#blog-section" class="nav-link"><span>My Blog</span></a></li>
+					<li class="nav-item"><a href="#blog-section" class="nav-link"><span>Education</span></a></li>
 					<li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
 				</ul>
 			</div>
@@ -179,7 +179,7 @@ if (isset($_POST['submit'])) {
 								<span class="number" data-number="120">0</span>
 								<span>Project complete</span>
 							</p> -->
-							<p><a href="#" class="btn btn-primary py-3 px-3">Download CV</a></p>
+							<!-- <p><a href="" class="btn btn-primary py-3 px-3">Download CV</a></p> -->
 						</div>
 					</div>
 				</div>
@@ -252,7 +252,7 @@ if (isset($_POST['submit'])) {
 			</div>
 			<div class="row justify-content-center mt-5">
 				<div class="col-md-6 text-center ftco-animate">
-					<p><a href="#" class="btn btn-primary py-4 px-5">Download CV</a></p>
+					<p><a href="https://drive.google.com/file/d/1N2Cr52SGufmB6PMx-sFkX5RDtKiacaD9/view?usp=drive_link" class="btn btn-primary py-4 px-5">Download CV</a></p>
 				</div>
 			</div>
 		</div>
@@ -438,7 +438,7 @@ if (isset($_POST['submit'])) {
 					$no = $index + 1;
 					if ($no % 4 == 0) {
 				?>
-						<div class="col-md-8">
+						<div class="col-md-4">
 							<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(admin/assets/img/<?php echo $v['image'] ?>);">
 								<div class="overlay"></div>
 								<div class="text text-center p-4">
@@ -475,7 +475,7 @@ if (isset($_POST['submit'])) {
 				<?php {
 				?>
 
-					<div class="col-md-8">
+					<!-- <div class="col-md-8">
 						<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(admin/assets/img/<?php echo $v['image'] ?>);">
 							<div class="overlay"></div>
 							<div class="text text-center p-4">
@@ -486,8 +486,8 @@ if (isset($_POST['submit'])) {
 					</div>
 				<?php
 				}
-				?>
-				<!-- <div class="col-md-8">
+				?> -->
+					<!-- <div class="col-md-8">
 					<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-1.jpg);">
 						<div class="overlay"></div>
 						<div class="text text-center p-4">
@@ -534,18 +534,21 @@ if (isset($_POST['submit'])) {
 		<div class="container">
 			<div class="row justify-content-center mb-5 pb-5">
 				<div class="col-md-7 heading-section text-center ftco-animate">
-					<h1 class="big big-2">Blog</h1>
-					<h2 class="mb-4">Our Blog</h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+					<h1 class="big big-2">Education</h1>
+					<h2 class="mb-4">My Education</h2>
+					<p>Latar belakang pendidikan formal dan keahlian yang menjadi landasan utama dalam karier profesional saya.</p>
 				</div>
 			</div>
 			<div class="row d-flex">
 				<?php foreach ($blog as $index => $v) {
 				?>
 
-					<div class="col-md-4 d-flex ftco-animate">
-						<div class="blog-entry justify-content-end">
-							<a href="single.html" class="block-20" style="background-image: url(admin/assets/img/<?php echo $v['image'] ?>);">
+					<!-- <div class="col-md-4 d-flex ftco-animate">
+						<div class="blog-entry text-center w-100">
+							<a href=" #" class="d-block py-3" style="display: flex !important; align-items: center; justify-content: center; width: 100% !important; height: 180px; text-align: center;">
+								<img src="admin/assets/img/<?php echo $v['image']; ?>"
+									style="max-height: 150px; max-width: 80%; object-fit: contain; margin: 0 auto; display: block;"
+									alt="Logo">
 							</a>
 							<div class="text mt-3 float-right d-block">
 								<div class="d-flex align-items-center mb-3 meta">
@@ -558,6 +561,26 @@ if (isset($_POST['submit'])) {
 								<h3 class="heading"><a href="single.html"><?php echo $v['title'] ?></a></h3>
 								<p><?php echo $v['subtitle'] ?></p>
 							</div>
+						</div>
+					</div> -->
+					<div class="col-md-6 d-flex ftco-animate">
+						<div class="blog-entry text-center w-100" style="text-align: center !important;">
+
+							<!-- BAGIAN GAMBAR / LOGO -->
+							<a href="#" class="d-flex align-items-center justify-content-center py-3" style="height: 180px; width: 100%;">
+								<img src="admin/assets/img/<?php echo $v['image']; ?>"
+									style="max-height: 140px; max-width: 80%; object-fit: contain; margin: 0 auto; display: block;"
+									alt="Logo">
+							</a>
+
+							<!-- BAGIAN TEKS (Hapus float-right) -->
+							<div class="text mt-3 d-block text-center" style="float: none !important; width: 100%;">
+								<h3 class="heading">
+									<a href="#"><?php echo $v['title']; ?></a>
+								</h3>
+								<p><?php echo $v['subtitle']; ?></p>
+							</div>
+
 						</div>
 					</div>
 				<?php
@@ -646,8 +669,9 @@ if (isset($_POST['submit'])) {
 			<div class="row justify-content-center">
 				<div class="col-md-7 ftco-animate text-center">
 					<h2>I'm <span>Available</span> for freelancing</h2>
-					<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-					<p class="mb-0"><a href="#" class="btn btn-primary py-3 px-5">Hire me</a></p>
+					<p>Terbuka untuk proyek pembuatan website, pengelolaan media sosial, atau kolaborasi digital lainnya.</p>
+					<p class="mb-0"><a href="https://wa.me/628778711039?text=Halo%20Meidi,%20saya%20tertarik%20untuk%20berkolaborasi](https://wa.me/628778711039?text=Halo%20Meidi,%20saya%20tertarik%20untuk%20berkolaborasi"
+							class="btn btn-primary py-3 px-5">Hire me</a></p>
 				</div>
 			</div>
 		</div>
@@ -740,9 +764,10 @@ if (isset($_POST['submit'])) {
 						<h2 class="ftco-heading-2">About</h2>
 						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
 						<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-							<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-							<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-							<li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+							<li class="ftco-animate"><a href="https://wa.me/628778711039?text=Halo%20Meidi,%20saya%20tertarik%20untuk%20berkolaborasi](https://wa.me/628778711039?text=Halo%20Meidi,%20saya%20tertarik%20untuk%20berkolaborasi">
+									<span class="icon-whatsapp"></span></a></li>
+							<li class="ftco-animate"><a href="https://www.linkedin.com/in/pujiiputrim"><span class="icon-linkedin"></span></a></li>
+							<li class="ftco-animate"><a href="https://www.instagram.com/pujiptrm/?utm_source=ig_web_button_share_sheet"><span class="icon-instagram"></span></a></li>
 						</ul>
 					</div>
 				</div>
@@ -752,7 +777,7 @@ if (isset($_POST['submit'])) {
 						<ul class="list-unstyled">
 							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Home</a></li>
 							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>About</a></li>
-							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Services</a></li>
+							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Resume</a></li>
 							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Projects</a></li>
 							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Contact</a></li>
 						</ul>
@@ -775,9 +800,9 @@ if (isset($_POST['submit'])) {
 						<h2 class="ftco-heading-2">Have a Questions?</h2>
 						<div class="block-23 mb-3">
 							<ul>
-								<li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-								<li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-								<li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+								<li><span class="icon icon-map-marker"></span><span class="text">Malaka 3, Malaka Sari, Duren Sawit, Jakarta Timur</span></li>
+								<li><a href="#"><span class="icon icon-phone"></span><span class="text">+62 877 3071 1039</span></a></li>
+								<li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@pujiputrim@gmail.com</span></a></li>
 							</ul>
 						</div>
 					</div>

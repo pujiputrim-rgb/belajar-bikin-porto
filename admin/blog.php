@@ -53,7 +53,9 @@ if (isset($_GET['delete'])) {
                 <td><?php echo $row['title'] ?></td>
                 <td><?php echo $row['subtitle'] ?></td>
                 <td><img src="assets/img/<?php echo $row['image'] ?>"
-                    width="170" alt=""></td>
+                    style="max-height: 150px; width: auto; object-fit: contain;"
+                    class="img-fluid mx-auto d-block"
+                    alt="Logo"></td>
                 <td>
                   <a class="btn btn-success btn-sm"
                     href="app.php?page=create-blog&edit=<?php echo $row['id'] ?>">Edit</a>
