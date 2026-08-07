@@ -35,3 +35,12 @@ body p, .about-info li span, .heading-section h2 {
 a {
     color: #F28892 !important; /* Gunakan pink yang sama untuk link/aksesoris */
 }
+#ftco-navbar, 
+.ftco-navbar-light.scrolled {
+    background-color: #9d3544 !important;
+}
+
+/* (Opsional) Mengubah warna teks menu di navbar agar tetap terbaca jelas */
+#ftco-navbar .navbar-nav > li > a {
+    color: #90cf73 !important; /* Warna gelap Vino Tinto */
+}

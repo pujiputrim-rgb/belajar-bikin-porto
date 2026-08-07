@@ -429,28 +429,15 @@ if (isset($_POST['submit'])) {
 				<div class="col-md-12 heading-section text-center ftco-animate">
 					<h1 class="big big-2">Projects</h1>
 					<h2 class="mb-4">Our Projects</h2>
-					<p>Masukin foto foto dokumentasi pas dulu magang atau kerja mirip di blog</p>
+					<p>Kumpulan karya dan proyek pilihan yang mencakup pengembangan web, desain grafis, manajemen media sosial, hingga administrasi data digital</p>
 				</div>
 			</div>
 			<div class="row">
 				<?php
 				foreach ($projects as $index => $v) {
-					$no = $index + 1;
-					if ($no % 4 == 0) {
+					// $no = $index + 1;
+					// if ($no % 4 == 0) 
 				?>
-						<div class="col-md-4">
-							<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(admin/assets/img/<?php echo $v['image'] ?>);">
-								<div class="overlay"></div>
-								<div class="text text-center p-4">
-									<h3><a href="#"><?php echo $v['title'] ?></a></h3>
-									<span><?php echo $v['subtitle'] ?></span>
-								</div>
-							</div>
-						</div>
-					<?php
-					} else
-					?>
-
 					<div class="col-md-4">
 						<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(admin/assets/img/<?php echo $v['image'] ?>);">
 							<div class="overlay"></div>
@@ -460,22 +447,8 @@ if (isset($_POST['submit'])) {
 							</div>
 						</div>
 					</div>
-				<?php
-				}
-				?>
-				<div class="col-md-4">
-					<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(admin/assets/img/<?php echo $v['image'] ?>);">
-						<div class="overlay"></div>
-						<div class="text text-center p-4">
-							<h3><a href="#"><?php echo $v['title'] ?></a></h3>
-							<span><?php echo $v['subtitle'] ?></span>
-						</div>
-					</div>
-				</div>
-				<?php {
-				?>
 
-					<!-- <div class="col-md-8">
+					<!-- <div class="col-md-4">
 						<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(admin/assets/img/<?php echo $v['image'] ?>);">
 							<div class="overlay"></div>
 							<div class="text text-center p-4">
@@ -483,28 +456,44 @@ if (isset($_POST['submit'])) {
 								<span><?php echo $v['subtitle'] ?></span>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				<?php
 				}
+				?>
+				<!-- <div class="col-md-4">
+					<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(admin/assets/img/ );">
+						<div class="overlay"></div>
+						<div class="text text-center p-4">
+							
+						</div>
+					</div>
+				</div>
+				<?php
 				?> -->
-					<!-- <div class="col-md-8">
+
+				<!-- <div class="col-md-8">
+						<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(admin/assets/img/);">
+							<div class="overlay"></div>
+							<div class="text text-center p-4">
+								<h3><a href="#">
+					<div class="col-md-8">
 					<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-1.jpg);">
 						<div class="overlay"></div>
 						<div class="text text-center p-4">
 							<h3><a href="#">Branding &amp; Illustration Design</a></h3>
 							<span>Web Design</span>
 						</div>
-					</div>
+					</div> -->
 
-					<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-6.jpg);">
+				<!-- <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-6.jpg);">
 						<div class="overlay"></div>
 						<div class="text text-center p-4">
 							<h3><a href="#">Branding &amp; Illustration Design</a></h3>
 							<span>Web Design</span>
 						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
+					</div> -->
+
+				<!-- <div class="col-md-4">
 					<div class="row">
 						<div class="col-md-12">
 							<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-2.jpg);">
@@ -553,13 +542,13 @@ if (isset($_POST['submit'])) {
 							<div class="text mt-3 float-right d-block">
 								<div class="d-flex align-items-center mb-3 meta">
 									<p class="mb-0">
-										<span class="mr-2"><?php echo $v['created_at'] ?></span>
+										<span class="mr-2"></span>
 										<a href="#" class="mr-2">Zootopia Police</a>
 										<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
 									</p>
 								</div>
-								<h3 class="heading"><a href="single.html"><?php echo $v['title'] ?></a></h3>
-								<p><?php echo $v['subtitle'] ?></p>
+								<h3 class="heading"><a href="single.html"><</a></h3>
+								<p></p>
 							</div>
 						</div>
 					</div> -->
@@ -749,7 +738,7 @@ if (isset($_POST['submit'])) {
 				</div>
 
 				<div class="col-md-6 d-flex">
-					<div class="img" style="background-image: url(admin/assets/img/<?php echo $v['image'] ?>);"></div>
+					<div class="img" style="background-image: url(admin/assets/img/6a7537ce3b18d_profile-depan.png);"></div>
 				</div>
 			</div>
 		</div>
@@ -762,7 +751,7 @@ if (isset($_POST['submit'])) {
 				<div class="col-md">
 					<div class="ftco-footer-widget mb-4">
 						<h2 class="ftco-heading-2">About</h2>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+						<p>Portofolio pribadi yang menampilkan proyek pengembangan web, pengelolaan media sosial, serta pengalaman di bidang komunikasi digital.</p>
 						<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
 							<li class="ftco-animate"><a href="https://wa.me/628778711039?text=Halo%20Meidi,%20saya%20tertarik%20untuk%20berkolaborasi](https://wa.me/628778711039?text=Halo%20Meidi,%20saya%20tertarik%20untuk%20berkolaborasi">
 									<span class="icon-whatsapp"></span></a></li>
@@ -787,11 +776,11 @@ if (isset($_POST['submit'])) {
 					<div class="ftco-footer-widget mb-4">
 						<h2 class="ftco-heading-2">Services</h2>
 						<ul class="list-unstyled">
-							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Web Design</a></li>
+							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Web Design UI/UX</a></li>
 							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Web Development</a></li>
-							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Business Strategy</a></li>
+							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Social Media Management</a></li>
 							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Data Analysis</a></li>
-							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Graphic Design</a></li>
+							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Data Entry & Administration</a></li>
 						</ul>
 					</div>
 				</div>
